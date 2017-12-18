@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" FILL ME IN ">
+    <meta name="author" content="Bijan Marashi">
+    <title>Disneyland By Night</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- https://touringplans.com/api# -->
+  </head>
+  <body>
+    <div class="container-fluid" style="background-color: #000">
+      <div class="row">
+        <div class="col-sm-3" style="width: 280px">
+          <div class="row" height="10%">
+            <div class="col-sm-12" style="text-align: center; color: #fff">
+              <h3>Disneyland By Night</h3>
+            </div>
+          </div>
+          <div class="row" height="10%">
+            <div class="input-group col-sm-12" style="margin: 10px 10px">
+              <input type="text" id="filterInput" data-bind="textInput: filterText, event: { keyup: filterMap, input: filterMap }" class="form-control" placeholder="Attraction" aria-label="Attraction">
+              <span class="input-group-btn">
+                <button class="btn btn-primary btn-sm" type="button">Filter</button>
+              </span>
+            </div>
+          </div>
+          <div class="row" height="80%">
+            <div class="col-sm-12">
+              <ul data-bind="foreach:locationList" id="filteredList" style="list-style: none">
+                <span class="listItem" data-bind="if: $data.isVisible"><li data-bind="text: $data.title, click: $parent.handleSelection($data)" style="color: #fff"></li></span>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Image courtesy of http://www.myviptour.com/img/giphy.gif -->
+        <div id="map">
+          <img id="micky" src="img/giphy.gif">
+          <h1 style="color: #fff">Loading...</h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      function gm_authFailure() { alert("howdy"); };
+      </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA11vweV8OG1cInOEymCrMQ_KcFjcoSjO8&v=3&callback=initMap">
+    </script>
+  </body>
+</html>
