@@ -198,7 +198,7 @@ function initMap() {
      marker.setMap(map);
      markers.push(marker);
 
-     // // update the pointer while we're here
+     // // update the pointer while we're hovering over the list
      // var listItems = $("#filteredList").children();
      // for (var i = 0; i < listItems.length; i++) {
      //   listItems[i].style.cursor = "pointer"
